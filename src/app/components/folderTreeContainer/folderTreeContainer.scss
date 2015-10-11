@@ -1,0 +1,12 @@
+folder-tree-container, [folder-tree-container] {
+  min-height: 100%;
+
+  md-sidenav {
+    min-height: 100vh;
+
+    .folder-tree div {
+      min-height: 1.5em;
+    }
+  }
+
+}

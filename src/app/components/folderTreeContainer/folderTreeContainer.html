@@ -1,0 +1,12 @@
+<md-sidenav layout-fill class="md-sidenav-left md-whiteframe-z2" md-component-id="tree" md-is-locked-open="$mdMedia('gt-md')">
+  <md-toolbar layout="row">
+    <h1 flex class="md-toolbar-tools">Folder Structure</h1>
+    <md-button ng-click="close()" hide-gt-md>
+      close
+    </md-button>
+  </md-toolbar>
+  <md-content layout-padding class="folder-tree">
+    <div ng-click="updatePath(value.path)">Home</div>
+    <div folder-tree folders="folders"></div>
+  </md-content>
+</md-sidenav>

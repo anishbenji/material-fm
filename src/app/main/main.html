@@ -1,0 +1,50 @@
+<div layout="column" layout-fill>
+  <md-toolbar layout-fill layout="row">
+    <md-button ng-click="toggleTree()" hide-gt-md>
+      open
+    </md-button>
+    <h1 flex class="md-toolbar-tools">File Manager</h1>
+  </md-toolbar>
+  <section ng-if="list" file-manager folders="folders" flex layout-fill>
+    <aside ng-if="folders" folder-tree-container folders="folders" open-folder-tree="ftOpen"></aside>
+    <md-content layout="column" flex layout-fill>
+      <breadcrumbs></breadcrumbs>
+      <folder-view flex></folder-view>
+      <drop-target>
+        <div ngf-drop ngf-select ng-model="files" class="drop-box"
+          ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="true"
+          accept="image/*,application/*"
+          ngf-pattern="'image/*,application/*'">Drop files here or click to upload to current folder</div>
+        <div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
+      </drop-target>
+    </md-content>
+  </section>
+</div>
+<!-- <div layout="column" layout-fill>
+
+  <section layout="row" flex>
+
+    <md-content>
+      <div ng-app="fileUpload">Username
+        <input type="text" ng-model="username"><br/><br/>
+        watching model:
+        <div class="button" ngf-select ng-model="file" ngf-multiple="false">Select File</div>
+        on file change multiple:
+        <div class="button" ngf-select="upload($files)" ngf-multiple="true">Select File</div>
+        Drop File:
+        Files:
+        <ul>
+            <li ng-repeat="f in files" style="font:smaller">{{f.name}} {{f.$error}} {{f.$errorParam}}</li>
+        </ul>
+        Upload Log:
+        <pre>{{log}}</pre>
+      </div>
+      <md-button ng-click="toggleLeft()"
+        class="md-primary" hide-gt-md>
+        Toggle left
+      </md-button>
+    </md-content>
+  </section>
+
+
+</div> -->
