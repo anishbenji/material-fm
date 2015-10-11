@@ -3,23 +3,22 @@
 
   angular
     .module('upload')
-    .directive('folderTreeContainer', folderTreeContainer);
+    .directive('breadcrumbs', breadcrumbs);
 
   /** @ngInject */
-  function folderTreeContainer() {
+  function breadcrumbs() {
     var directive = {
       restrict: 'EA',
-      require: '^fileManager',
-      templateUrl: 'app/components/folderTreeContainer/folderTreeContainer.html',
+      require: ['^fileManager', '?folderTree', '?folderView'],
+      templateUrl: 'app/components/breadcrumbs/breadcrumbs.html',
       scope: {
-        folders: '=',
-        openFt: '=openFolderTree'
+        path: '='
       },
       // compile: folderTreeCompiler,
       // bindToController: {
       //   folders: '='
       // },
-      controller: folderTreeController
+      controller: breadcrumbsController
       // controllerAs: 'ft'/*,*/
       // transclude: true
     };
@@ -31,35 +30,8 @@
     // }
 
     /** @ngInject */
-    function folderTreeController($scope, $attrs, $element, $log, $mdSidenav) {
-      console.debug($scope.folders);
+    function breadcrumbsController($scope, $attrs, $element, $log) {
 
-      $attrs.$observe('openFolderTree', updateFtState);
-
-      $scope.close = close;
-
-      function updateFtState(newValue) {
-        newValue = !!newValue;
-        if (newValue) {
-          open();
-        } else {
-          close();
-        }
-      }
-
-      function open() {
-        $mdSidenav('tree').open()
-          .then(function () {
-            $scope.openFt = true;
-          });
-      };
-
-      function close() {
-        $mdSidenav('tree').close()
-          .then(function () {
-            $scope.openFt = false;
-          });
-      };
     }
   }
 

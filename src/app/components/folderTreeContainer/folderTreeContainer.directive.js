@@ -15,13 +15,7 @@
         folders: '=',
         openFt: '=openFolderTree'
       },
-      // compile: folderTreeCompiler,
-      // bindToController: {
-      //   folders: '='
-      // },
       controller: folderTreeController
-      // controllerAs: 'ft'/*,*/
-      // transclude: true
     };
 
     return directive;

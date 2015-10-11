@@ -18,15 +18,14 @@
                 '  </div>' +
                 '  <div ng-if="value.sub && value.open" class="tree-leaf" folder-tree folders="value.sub"></div>' +
                 '</div>',
-      // replace: true,
       scope: {folders: '='},
       compile: folderTreeCompiler,
       // bindToController: {
       //   folders: '='
       // },
-      link: folderTreeLinkFn,
-      // controllerAs: 'ft'/*,*/
-      // transclude: true
+      // controller: folderTreeController,
+      // controllerAs: ft,
+      link: folderTreeLinkFn
     };
 
     return directive;
@@ -49,6 +48,10 @@
         (bc) && bc.updatePath();
         (fv) && fv.updatePath();
       }
+    }
+
+    function folderTreeController($scope) {
+
     }
   }
 
