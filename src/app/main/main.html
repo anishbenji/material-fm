@@ -1,17 +1,17 @@
 <div layout="column" layout-fill>
   <md-toolbar layout="row" style="position: fixed;">
-    <md-button ng-click="toggleTree()" hide-gt-md>
-      open
+    <md-button hide-gt-md ng-click="main.toggleTree()"  aria-label="Open folder tree">
+      <md-icon md-svg-icon="assets/icons/folder-multiple.svg"></md-icon>
     </md-button>
     <h1 flex class="md-toolbar-tools">File Manager</h1>
   </md-toolbar>
-  <section ng-if="list" file-manager folders="folders" flex layout-fill>
-    <aside ng-if="folders" folder-tree-container folders="folders" open-folder-tree="ftOpen"></aside>
+  <section ng-if="main.list" file-manager folders="main.folders" flex layout-fill>
+    <aside ng-if="main.folders" folder-tree-container folders="main.folders" open-folder-tree="main.ftOpen"></aside>
     <md-content layout="column" flex layout-fill>
       <breadcrumbs></breadcrumbs>
-      <folder-view flex></folder-view>
+      <file-view flex></file-view>
       <drop-target>
-        <div ngf-drop ngf-select ng-model="files" class="drop-box"
+        <div ngf-drop ngf-select ng-model="main.files" class="drop-box"
           ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="true"
           accept="image/*,application/*"
           ngf-pattern="'image/*,application/*'">Drop files here or click to upload to current folder</div>

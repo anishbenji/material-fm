@@ -6,9 +6,10 @@
     .config(config);
 
   /** @ngInject */
-  function config($logProvider) {
+  function config($logProvider, $compileProvider) {
     // Enable log
     $logProvider.debugEnabled(true);
+    $compileProvider.debugInfoEnabled(true);
   }
 
 })();

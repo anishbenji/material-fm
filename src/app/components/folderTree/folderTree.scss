@@ -1,8 +1,30 @@
-.tree-leaf {
-  margin-left: 1em;
+$ft-icon-size: 2em;
+.tree-leaf.folder-btn {
+  margin: 0 0 0 1.5em;
+  top: -4px;
 }
 
-.folder-state {
-  width: 1em;
-  text-align: center;
+.folder-tree {
+  position: relative;
 }
+
+button.md-button.folder-state {
+  position: absolute;
+  min-height: 0;
+  margin: 0;
+  height: $ft-icon-size;
+  width: $ft-icon-size;
+  left: -6px;
+  md-icon, .md-ripple-container {
+    min-height: 0;
+    line-height: $ft-icon-size;
+    height: $ft-icon-size;
+    width: $ft-icon-size;
+    vertical-align: top;
+  }
+}
+
+// folder-tree, [folder-tree] {
+// }
+
+

@@ -11,11 +11,13 @@
       restrict: 'EA',
       require: '^fileManager',
       templateUrl: 'app/components/folderTreeContainer/folderTreeContainer.html',
-      scope: {
+      scope: {},
+      bindToController: {
         folders: '=',
         openFt: '=openFolderTree'
       },
-      controller: folderTreeController
+      controller: folderTreeController,
+      controllerAs: 'ftc'
     };
 
     return directive;
@@ -25,12 +27,18 @@
     // }
 
     /** @ngInject */
-    function folderTreeController($scope, $attrs, $element, $log, $mdSidenav) {
-      console.debug($scope.folders);
+    function folderTreeController($scope, $attrs, $element, $log, $mdSidenav, list) {
+      var vm = this;
+      $log.debug(vm.folders);
 
       $attrs.$observe('openFolderTree', updateFtState);
 
-      $scope.close = close;
+      vm.close = close;
+      vm.updatePath = updatePath;
+
+      function updatePath() {
+        list.currentPath = null;
+      }
 
       function updateFtState(newValue) {
         newValue = !!newValue;
@@ -44,16 +52,16 @@
       function open() {
         $mdSidenav('tree').open()
           .then(function () {
-            $scope.openFt = true;
+            vm.openFt = true;
           });
-      };
+      }
 
       function close() {
         $mdSidenav('tree').close()
           .then(function () {
-            $scope.openFt = false;
+            vm.openFt = false;
           });
-      };
+      }
     }
   }
 

@@ -9,14 +9,17 @@
   function folderTree($log, recursionHelper, list) {
     var directive = {
       restrict: 'A',
-      require: ['^fileManager', '?breadcrumbs', '?folderView'],
+      require: ['^fileManager', '^folderTreeContainer'],
       template: '<div ng-repeat="(key, value) in folders track by $index">' +
-                '  <div layout="row" layout-fill>' +
+                '  <div class="folder-tree" layout="row">' +
                 '    <div ng-if="!value.sub" class="folder-state"></div>' +
-                '    <div ng-if="value.sub" ng-click="value.open=!value.open" class="folder-state" ng-bind="value.open?\'-\':\'+\'"></div>' +
-                '    <div flex ng-click="updatePath(value.path)" ng-bind="key"></div>' +
+                '    <md-button ng-if="value.sub" ng-click="value.open=!value.open" class="folder-state md-icon-button" aria-label="Expand {{::key}}">' +
+                '      <md-icon md-svg-icon="assets/icons/{{value.open?\'ic_remove_24px\':\'ic_add_24px\'}}.svg"></md-icon>' +
+                '    </md-button>' +
+                // '    <div ng-if="value.sub" ng-click="value.open=!value.open" class="folder-state pointer" ng-bind="value.open?\'-\':\'+\'"></div>' +
+                '    <md-button flex ng-click="updatePath(value.path)" class="folder-btn tree-leaf" aria-label="Navigate to {{::key}}" ng-bind="::key"></md-button>' +
                 '  </div>' +
-                '  <div ng-if="value.sub && value.open" class="tree-leaf" folder-tree folders="value.sub"></div>' +
+                '  <div ng-if="value.sub && value.open" class="tree-leaf folder-btn" folder-tree folders="value.sub"></div>' +
                 '</div>',
       scope: {folders: '='},
       compile: folderTreeCompiler,
@@ -36,23 +39,27 @@
 
     function folderTreeLinkFn(scope, iAttrs, iElem, externalControllers) {
       var fm = externalControllers[0];
-      var bc = externalControllers[1];
-      var fv = externalControllers[2];
-      $log.debug(scope.folders, fm, bc, fv);
+      var ftc = externalControllers[1];
+      // $log.debug(scope.folders, ftc);
 
       scope.updatePath = updatePath;
 
       function updatePath(path) {
         list.setCurrentPath(path);
         fm.updatePath();
-        (bc) && bc.updatePath();
-        (fv) && fv.updatePath();
+        ftc.close();
       }
     }
 
-    function folderTreeController($scope) {
+    // function folderTreeController($scope) {
 
-    }
+    //   list.registerUpdate
+
+
+    //   function updatePath() {
+    //     $scope.folders = list.currentPath;
+    //   }
+    // }
   }
 
 })(angular);

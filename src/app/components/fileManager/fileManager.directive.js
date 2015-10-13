@@ -29,7 +29,7 @@
     /** @ngInject */
     function fileManagerController($attrs, $element, $log, $mdSidenav, list) {
       var vm = this;
-      console.debug(vm.folders);
+      $log.debug(vm.folders);
 
       vm.updatePath = updatePath;
 

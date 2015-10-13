@@ -12,6 +12,17 @@
 
     service.folders = folders;
     service.pathRead = pathRead;
+    service.createDownloadLink = createDownloadLink;
+
+    function createDownloadLink(obj, currentPath) {
+      var i;
+      var newPath;
+      for (i in obj) {
+        newPath = currentPath + encodeURIComponent('/' + obj[i].name);
+        obj[i].downloadLink = newPath;
+        createDownloadLink(obj[i].list, newPath);
+      }
+    }
 
     function folders(obj, currentPath, params) {
       var i;
@@ -20,7 +31,7 @@
       var temp;
       var newPath;
       for (i in obj) {
-        if (typeof obj[i].list === 'object') {
+        if (angular.isObject(obj[i].list)) {
           if (result === false ) {
             result = {};
           }
@@ -56,7 +67,7 @@
     var newObj = [];
     for (var i = 0, len = path.length; i < len; i++) {
       obj = obj[path[i]] ? obj[path[i]] : obj.list[path[i]];
-      if (!obj || typeof obj !== 'object') {
+      if (!angular.isObject(obj)) {
         return def;
       }
       newObj.push(obj);

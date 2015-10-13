@@ -4,12 +4,12 @@
   angular
     .module('upload')
     .controller('MainController', MainController)
-    /*.controller('LeftCtrl', function ($scope, $timeout, $mdSidenav, $log, list) {
+    /*.controller('LeftCtrl', function (vm, $timeout, $mdSidenav, $log, list) {
 
 
 
     list.getFiles().then(function() {
-      $scope.folders = list.folders;
+      vm.folders = list.folders;
     });
 
 
@@ -17,43 +17,44 @@
 
   /** @ngInject */
   function MainController($scope, $timeout, $log, Upload, list, utilities) {
+    var vm = this;
 
-    $scope.toggleTree = utilities.buildToggler('tree');
+    vm.toggleTree = utilities.buildToggler('tree');
 
 
     list.getFiles().then(function() {
-      $scope.list = list.data;
-      $scope.folders = list.folders;
+      vm.list = list.data;
+      vm.folders = list.folders;
     });
 
     $scope.$watch('files', function () {
-      $scope.upload($scope.files);
+      vm.upload(vm.files);
     });
     $scope.$watch('file', function () {
-      if ($scope.file != null) {
-        $scope.files = [$scope.file];
+      if (vm.file != null) {
+        vm.files = [vm.file];
       }
     });
-    $scope.log = '';
+    vm.log = '';
 
-    $scope.upload = function (files) {
+    vm.upload = function (files) {
       if (files && files.length) {
         for (var i = 0; i < files.length; i++) {
           var file = files[i];
           if (!file.$error) {
             Upload.upload({
-              url: 'upload.php',
+              url: '/anish/filemanager/upload.php',
               data: {
-                username: $scope.username,
+                username: vm.username,
                 file: file
               }
             }).progress(function (evt) {
               var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-              $scope.log = 'progress: ' + progressPercentage + '% ' +
-                            evt.config.data.file.name + '\n' + $scope.log;
+              vm.log = 'progress: ' + progressPercentage + '% ' +
+                            evt.config.data.file.name + '\n' + vm.log;
             }).success(function (data, status, headers, config) {
               $timeout(function() {
-                $scope.log = 'file: ' + config.data.file.name + ', Response: ' + JSON.stringify(data) + '\n' + $scope.log;
+                vm.log = 'file: ' + config.data.file.name + ', Response: ' + angular.toJson(data) + '\n' + vm.log;
               });
             });
           }

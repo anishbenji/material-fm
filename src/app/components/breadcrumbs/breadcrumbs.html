@@ -1,6 +1,7 @@
-<div layout="row" layout-wrap>
-  <div>Home</div>
-  <md-button ng-click="close()" hide-gt-md>
-    close
-  </md-button>
-</div>
+<nav layout="row" layout-align="start center" class="md-whiteframe-z2">
+  <md-button ng-click="bc.setPath(-1)" aria-label="Navigate to Home" ng-disabled="!bc.path">Home</md-button>
+  <div ng-if="bc.path" ng-repeat="(key, value) in bc.path track by value.name">
+    <md-icon md-svg-icon="assets/icons/ic_keyboard_arrow_right_24px.svg"></md-icon>
+    <md-button ng-click="bc.setPath($index)" ng-bind="::value.name" aria-label="Navigate to {{::value.name}}" ng-disabled="$last"></md-button>
+  </div>
+</nav>

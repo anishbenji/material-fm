@@ -1,0 +1,23 @@
+breadcrumbs, [breadcrumbs] {
+  display: block;
+
+  // & > div {
+  //   height: 4em;
+  //   display: block;
+
+    nav {
+      height: 4em;
+
+      md-icon, button.md-button {
+        margin: 0;
+        min-width: 0;
+        text-transform: none;
+      }
+
+      button[disabled] {
+        color: rgba(0,0,0,1) !important;
+        cursor: initial !important;
+      }
+    }
+  // }
+}

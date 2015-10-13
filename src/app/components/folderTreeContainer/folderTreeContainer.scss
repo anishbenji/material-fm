@@ -5,7 +5,16 @@ folder-tree-container, [folder-tree-container] {
     min-height: 100vh;
 
     .folder-tree div {
-      min-height: 1.5em;
+      min-height: 2em;
+    }
+
+    .tree-base {
+      // align-items: flex-start;
+      // text-align: left;
+      // width: 100%;
+      // margin: 0;
+      // padding: 0;
+      // text-transform: none;
     }
   }
 

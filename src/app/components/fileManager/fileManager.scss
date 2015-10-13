@@ -1,8 +1,31 @@
+$toolbar-height: 64px;
 file-manager, [file-manager] {
-  // display: block;
   bottom: 0;
-  // height: 100%;
   position: absolute;
   top: 0;
-  // width: 100%;
+  * {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  & > ng-transclude > md-content {
+    margin-top: $toolbar-height;
+  }
 }
+
+.pointer {
+  cursor: pointer;
+}
+
+button.folder-btn {
+  align-items: flex-start;
+  text-align: left;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  text-transform: none;
+}
+
+
