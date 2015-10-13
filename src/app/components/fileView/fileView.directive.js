@@ -31,11 +31,13 @@
     // }
 
     /** @ngInject */
-    function fileViewController($scope, $attrs, $element, $log, list) {
+    function fileViewController($scope, $attrs, $element, $window, $log, list) {
       $scope.downloadPath = list.basePath;
       $scope.files = list.files;
 
       $scope.updatePath = updatePath;
+      $scope.deleteFile = deleteFile;
+      $scope.downloadFile = downloadFile;
 
       // UPDATE THIS TO NOT USE $watch
       $scope.$watch(function() {
@@ -59,6 +61,16 @@
           }
           $scope.files = folder.list;
         }
+      }
+
+      function deleteFile(path) {
+        $log.debug(list.deletePath + path);
+        list.deletePath(path);
+      }
+
+      function downloadFile(path) {
+        $log.debug(list.downloadPath + path);
+        $window.open(list.downloadPath + path);
       }
     }
   }

@@ -3,7 +3,10 @@
     <div layout="row" layout-fill layout-align="space-between center">
       <div ng-if="(!value.list)" flex class="md-list-item-text" ng-bind="value.name"></div>
       <md-button ng-if="(value.list)" flex class="folder-btn" aria-label="Navigate to {{value.name}}" ng-click="updatePath(value)" ng-bind="value.name"></md-button>
-      <md-button ng-href="{{value.downloadLink}}" class="md-icon-button" aria-label="Download">
+      <md-button ng-click="deleteFile(value.url)" class="md-icon-button" aria-label="Download">
+        <md-icon md-svg-icon="assets/icons/ic_close_24px.svg"></md-icon>
+      </md-button>
+      <md-button ng-click="downloadFile(value.url)" class="md-icon-button" aria-label="Download">
         <md-icon md-svg-icon="assets/icons/ic_file_download_24px.svg"></md-icon>
       </md-button>
     </div>

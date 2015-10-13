@@ -8,8 +8,8 @@
   /** @ngInject */
   function config($logProvider, $compileProvider) {
     // Enable log
-    $logProvider.debugEnabled(true);
-    $compileProvider.debugInfoEnabled(true);
+    $logProvider.debugEnabled(false);
+    $compileProvider.debugInfoEnabled(false);
   }
 
 })();

@@ -12,15 +12,15 @@
 
     service.folders = folders;
     service.pathRead = pathRead;
-    service.createDownloadLink = createDownloadLink;
+    service.creatUrl = creatUrl;
 
-    function createDownloadLink(obj, currentPath) {
+    function creatUrl(obj, currentPath) {
       var i;
       var newPath;
       for (i in obj) {
         newPath = currentPath + encodeURIComponent('/' + obj[i].name);
-        obj[i].downloadLink = newPath;
-        createDownloadLink(obj[i].list, newPath);
+        obj[i].url = newPath;
+        creatUrl(obj[i].list, newPath);
       }
     }
 

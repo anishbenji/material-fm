@@ -6,10 +6,11 @@
       .service('list', list);
 
   /** @ngInject */
-  function list($q, $log, getData, preprocess) {
+  function list($q, $http, $log, getData, preprocess) {
     var service = this;
     var url;
-    service.basePath = '/anish/filemanager/download.php?path=files';
+    service.downloadPath = '/anish/filemanager/download.php?path=';
+    service.deletePath = deletePath;
     $log.debug('Starting discover feed service');
 
     // dev & testing
@@ -23,6 +24,13 @@
       service.currentPath = preprocess.pathRead(service.data, path, null)
     }
 
+    function deletePath(path) {
+      var delPath = '/anish/filemanager/delete.php?path=';
+      $http.post(delPath + path).then(function(response) {
+        $log.debug(response);
+      });
+    }
+
     function getFiles(path) {
       var deferred = $q.defer();
       path = path || 'files';
@@ -32,7 +40,7 @@
           if (angular.isDefined(response)) {
             $log.debug('feed before preprocessing: ', response);
             service.data = angular.fromJson(response);
-            preprocess.createDownloadLink(service.data, service.basePath);
+            preprocess.creatUrl(service.data, '');
             service.folders = preprocess.folders(response, [], ['id']);
             deferred.resolve(service.data);
             $log.debug('feed after preprocessing: ', service.data);
