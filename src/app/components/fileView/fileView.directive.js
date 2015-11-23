@@ -52,10 +52,7 @@
         $log.debug($scope.files);
       }, false);
 
-      function updatePath(folder, ev) {
-        if (ev) {
-          ev.stopPropagation();
-        }
+      function updatePath(folder) {
         if (folder.list){
           if (list.currentPath === null) {
             list.currentPath = [folder];

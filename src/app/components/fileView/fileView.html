@@ -1,16 +1,16 @@
 <md-list>
-  <md-list-item class="md-3-line file-view" ng-repeat="(key, value) in files track by $index">
+  <md-list-item class="md-3-line file-view" ng-repeat="(key, value) in files track by value.id">
     <div layout="row" layout-fill layout-align="space-between center">
       <div ng-if="(!value.list)" flex class="md-list-item-text no-wrap" ng-bind="value.name"></div>
       <md-button ng-if="(value.list)" flex class="folder-btn" aria-label="Navigate to {{value.name}}" ng-click="updatePath(value, $event)" ng-bind="value.name"></md-button>
       <md-button ng-click="deleteFile(value.url)" class="md-icon-button" aria-label="Download">
-        <md-icon md-svg-icon="assets/icons/ic_close_24px.svg"></md-icon>
+        <md-icon md-svg-icon="assets/icons/ic_delete_48px.svg"></md-icon>
       </md-button>
       <md-button ng-click="downloadFile(value.url)" class="md-icon-button" aria-label="Download">
         <md-icon md-svg-icon="assets/icons/ic_file_download_24px.svg"></md-icon>
       </md-button>
     </div>
-    <md-checkbox class="md-secondary select-file" ng-model="value.selected"></md-checkbox>
+    <md-checkbox class=" select-file" ng-model="value.selected" aria-label="Select {{::(value.list ? 'folder' : 'file')}}"></md-checkbox>
     <md-divider></md-divider>
   </md-list-item>
 </md-list>
