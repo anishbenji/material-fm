@@ -1,9 +1,11 @@
 <md-sidenav layout-fill class="md-sidenav-left md-whiteframe-z2" md-component-id="tree" md-is-locked-open="$mdMedia('gt-md')">
   <md-toolbar layout="row">
-    <h1 flex class="md-toolbar-tools">Folder Structure</h1>
-    <md-button ng-click="ftc.close()" aria-label="Close">
-      <md-icon md-svg-icon="assets/icons/dir-left.svg"></md-icon>
-    </md-button>
+    <div class="md-toolbar-tools">
+      <h1 flex class="md-toolbar-tools">Folder Structure</h1>
+      <md-button class="md-icon-button" ng-click="ftc.close()" aria-label="Close">
+        <md-icon md-svg-icon="assets/icons/dir-left.svg"></md-icon>
+      </md-button>
+    </div>
   </md-toolbar>
   <md-content layout-padding class="folder-tree">
     <md-button class="folder-btn" ng-click="ftc.updatePath()" class="pointer">Home</md-button>

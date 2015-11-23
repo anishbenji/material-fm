@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('upload')
+    .module('materialFm')
     .directive('fileManager', fileManager);
 
   /** @ngInject */

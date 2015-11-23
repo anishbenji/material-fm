@@ -6,7 +6,14 @@ breadcrumbs, [breadcrumbs] {
   //   display: block;
 
     nav {
-      height: 4em;
+      min-height: 4em;
+      padding: .5em 0;
+      overflow: scroll;
+      width: initial;
+
+       & > div {
+        display: inline;
+       }
 
       md-icon, button.md-button {
         margin: 0;

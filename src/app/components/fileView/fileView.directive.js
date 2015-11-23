@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('upload')
+    .module('materialFm')
     .directive('fileView', fileView);
 
   /** @ngInject */
@@ -52,7 +52,10 @@
         $log.debug($scope.files);
       }, false);
 
-      function updatePath(folder) {
+      function updatePath(folder, ev) {
+        if (ev) {
+          ev.stopPropagation();
+        }
         if (folder.list){
           if (list.currentPath === null) {
             list.currentPath = [folder];

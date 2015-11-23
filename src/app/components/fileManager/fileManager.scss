@@ -28,4 +28,10 @@ button.folder-btn {
   text-transform: none;
 }
 
+.no-wrap {
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 

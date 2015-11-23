@@ -37,7 +37,7 @@ module.exports = function(config) {
 
     ngHtml2JsPreprocessor: {
       stripPrefix: conf.paths.src + '/',
-      moduleName: 'upload'
+      moduleName: 'material-filemanager'
     },
 
     logLevel: 'WARN',

@@ -2,6 +2,6 @@
   'use strict';
 
   angular
-    .module('upload');
+    .module('materialFm');
 
 })();

@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('upload')
+    .module('materialFm')
     .directive('breadcrumbs', breadcrumbs);
 
   /** @ngInject */

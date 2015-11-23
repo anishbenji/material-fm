@@ -1,6 +1,6 @@
 {
-  "name": "upload",
-  "version": "0.0.0",
+  "name": "material-filemanager",
+  "version": "0.1.0",
   "dependencies": {},
   "scripts": {
     "test": "gulp test"

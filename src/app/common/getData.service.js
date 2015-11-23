@@ -8,7 +8,7 @@
    * # getData
    * Factory in upload.
    */
-  angular.module('upload')
+  angular.module('materialFm')
     .service('getData', getData);
 
   function getData($http, $log) {

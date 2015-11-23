@@ -8,7 +8,7 @@
    * # utilities
    * Factory in upload.
    */
-  angular.module('upload')
+  angular.module('materialFm')
     .service('utilities', utilities);
 
   function utilities($mdSidenav, $mdUtil, $log) {
