@@ -14,7 +14,7 @@
                 '  <div class="folder-tree" layout="row">' +
                 '    <div ng-if="!value.sub" class="folder-state"></div>' +
                 '    <md-button ng-if="value.sub" ng-click="value.open=!value.open" class="folder-state md-icon-button" aria-label="Expand {{::key}}">' +
-                '      <md-icon md-svg-icon="assets/icons/{{value.open?\'ic_remove_24px\':\'ic_add_24px\'}}.svg"></md-icon>' +
+                '      <md-icon md-svg-icon="assets/icons/{{value.open?\'ic_remove_24px\':\'ic_add\'}}.svg"></md-icon>' +
                 '    </md-button>' +
                 // '    <div ng-if="value.sub" ng-click="value.open=!value.open" class="folder-state pointer" ng-bind="value.open?\'-\':\'+\'"></div>' +
                 '    <md-button flex ng-click="updatePath(value.path)" class="folder-btn tree-leaf" aria-label="Navigate to {{::key}}" ng-bind="::key"></md-button>' +

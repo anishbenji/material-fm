@@ -16,7 +16,8 @@
         <div ngf-drop="main.upload($files)" ngf-select="main.upload($files)" class="drop-box"
           ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="true"  ngf-max-size="50MB"
           accept="image/*,application/*"
-          ngf-pattern="'image/*,application/*'">Drop files here or click to upload to current folder</div>
+          ngf-pattern="'image/*,application/*'"
+          layout="row" layout-align="start stretch"><md-icon class="upload-icon" md-svg-icon="assets/icons/ic_file_upload.svg"></md-icon><div flex>Drop files here or click to upload to current folder</div></div>
         <div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
       </drop-target>
     </md-content>

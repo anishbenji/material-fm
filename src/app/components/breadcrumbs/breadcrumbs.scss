@@ -5,10 +5,10 @@ breadcrumbs, [breadcrumbs] {
   //   height: 4em;
   //   display: block;
 
-    nav {
+    .nav {
       min-height: 4em;
       padding: .5em 0;
-      overflow: scroll;
+      overflow: auto;
       width: initial;
 
        & > div {
@@ -22,7 +22,7 @@ breadcrumbs, [breadcrumbs] {
       }
 
       button[disabled] {
-        color: rgba(0,0,0,1) !important;
+        color: rgba(0, 0, 0, 1) !important;
         cursor: initial !important;
       }
     }
