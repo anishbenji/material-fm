@@ -5,6 +5,19 @@
 // bower:scss
 // endbower
 
+$toolbar-height: 56px;
+$droptarget-height: 118px;
+//FUNCTIONS
+//
+// generic transform
+@mixin transform($transforms) {
+     -moz-transform: $transforms;
+       -o-transform: $transforms;
+      -ms-transform: $transforms;
+  -webkit-transform: $transforms;
+          transform: $transforms;
+}
+
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,500,600,700,700italic,400italic);
 
 html {
@@ -39,12 +52,17 @@ html {
   //   ver
   // }
 }
+
 .dragover {
     border: 5px dashed blue;
 }
+
 [ui-view] {
   min-height: 100vh;
   position: relative;
+}
+.app {
+  min-height: inherit;
 }
 
 .upload-icon {
@@ -52,6 +70,62 @@ html {
   width: 48px;
   // padding: 0 10px;
 }
+
+.fixed {
+  position: fixed;
+}
+
+.line-item {
+  width: calc(100vw - 184px);
+}
+
+.breadcrumbs {
+}
+
+.toolbar, .toolbar .md-toolbar-tools {
+  height: $toolbar-height;
+  min-height: $toolbar-height;
+  max-height: $toolbar-height;
+}
+
+.main {
+  overflow-y: scroll;
+
+  &:not(.dt-visible) {
+    height: calc(100vh - #{$toolbar-height});
+  }
+
+  &.dt-visible {
+    height: calc(100vh - #{$toolbar-height + $droptarget-height});
+  }
+
+  & > * {
+    display: block;
+  }
+}
+
+.fileview {
+  overflow-y: scroll;
+}
+
+.tools {
+  bottom: 1em;
+  position: fixed;
+  right: 1em;
+}
+.md-button.md-fab md-icon.dark-color {
+  color: rgba(0,0,0,0.54);
+}
+
+md-tooltip.md-show.fab-tooltip {
+  @include transform(translate3d(-20px, 0, 0));
+}
+// drop-target {
+//   position: fixed;
+//   top: 0px;
+//   left: 0px;
+// }
+
 /**
  *  Do not remove the comment below. It's the markers used by gulp-inject to inject
  *  all your sass files automatically

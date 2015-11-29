@@ -18,6 +18,8 @@
     });
 
     vm.log = '';
+    vm.dtVisible = true;
+    vm.isOpen = false;
 
     vm.upload = function (files) {
       var path = 'files/';

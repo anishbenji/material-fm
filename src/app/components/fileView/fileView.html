@@ -1,8 +1,8 @@
 <md-list>
-  <md-list-item class="md-3-line file-view" ng-repeat="(key, value) in files track by value.id">
-    <div layout="row" layout-fill layout-align="space-between center">
-      <div ng-if="(!value.list)" flex class="md-list-item-text no-wrap" ng-bind="value.name"></div>
-      <md-button ng-if="(value.list)" flex class="folder-btn" aria-label="Navigate to {{value.name}}" ng-click="updatePath(value, $event)" ng-bind="value.name"></md-button>
+  <md-list-item class="file-view" ng-repeat="(key, value) in files track by value.id" layout="row">
+    <div layout="row" layout-align="start center">
+      <div ng-if="(!value.list)" flex="auto" class="line-item md-list-item-text no-wrap" ng-bind="value.name"></div>
+      <div ng-if="(value.list)" flex="auto" class="line-item md-list-item-text no-wrap folder" aria-label="Navigate to {{value.name}}" ng-click="updatePath(value, $event)" ng-bind="value.name"></div>
       <md-button ng-click="deleteFile(value.url)" class="md-icon-button" aria-label="Download">
         <md-icon md-svg-icon="assets/icons/ic_delete.svg"></md-icon>
       </md-button>

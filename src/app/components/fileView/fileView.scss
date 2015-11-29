@@ -1,14 +1,25 @@
 md-list {
-  margin-left: 1em;
+  // padding-left: 1em;
+  width: 100%;
+  box-sizing: border-box;
+  // overflow-y: auto;
 
   .file-view > div {
-    padding-left: 3em;
+    padding-left: 3.5em;
+    width: 100%;
+    & > div {
+      width: 100%;
+    }
+
+    .folder {
+      color: #3F51B5;
+    }
   }
 
   .select-file {
     position: absolute;
-    -webkit-transform: translate3d(0, 4px, 0);
-    transform: translate3d(0, 4px, 0);
-    left: 0px
+    // -webkit-transform: translate3d(0, 4px, 0);
+    // transform: translate3d(0, 4px, 0);
+    left: 12px;
   }
 }

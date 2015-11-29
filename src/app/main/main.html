@@ -1,5 +1,5 @@
-<div layout="column" layout-fill>
-  <md-toolbar layout="row" style="position: fixed;">
+<div class="app" layout="column" layout-align="start stretch">
+  <md-toolbar class="toolbar" layout="row">
     <div class="md-toolbar-tools">
       <md-button class="md-icon-button" hide-gt-md ng-click="main.toggleTree()"  aria-label="Open folder tree">
         <md-icon md-svg-icon="assets/icons/folder-multiple.svg"></md-icon>
@@ -7,12 +7,14 @@
       <h1 flex class="md-toolbar-tools">File Manager</h1>
     </div>
   </md-toolbar>
-  <section ng-if="main.list" file-manager folders="main.folders" flex layout-fill>
+  <section ng-if="main.list" file-manager folders="main.folders" flex>
     <aside ng-if="main.folders" folder-tree-container folders="main.folders" open-folder-tree="main.ftOpen"></aside>
-    <md-content layout="column" flex layout-fill>
-      <breadcrumbs></breadcrumbs>
-      <file-view flex></file-view>
-      <drop-target>
+    <md-content layout="column" flex="grow">
+      <div class="main" flex="auto" ng-class="{'dt-visible': main.dtVisible}">
+        <breadcrumbs class="md-whiteframe-3dp breadcrumbs"></breadcrumbs>
+        <file-view class="fileview" flex="auto"></file-view>
+      </div>
+      <drop-target ng-if="main.dtVisible">
         <div ngf-drop="main.upload($files)" ngf-select="main.upload($files)" class="drop-box"
           ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="true"  ngf-max-size="50MB"
           accept="image/*,application/*"
@@ -23,6 +25,34 @@
     </md-content>
   </section>
 </div>
+<md-fab-speed-dial md-open="main.isOpen" md-direction="up"
+                         class="md-scale tools">
+  <md-fab-trigger>
+    <md-button aria-label="menu" class="md-fab md-warn">
+      <md-icon md-svg-src="assets/icons/ic_build.svg"></md-icon>
+    </md-button>
+  </md-fab-trigger>
+  <md-fab-actions>
+    <md-button aria-label="Upload Files & Folders" class="md-fab md-raised md-mini" ng-click="main.dtVisible = !main.dtVisible"><md-tooltip class="fab-tooltip" md-direction="left" md-visible="main.isOpen"
+                    md-autohide="false">
+        Upload Files & Folders
+      </md-tooltip>
+      <md-icon class="dark-color" md-svg-src="assets/icons/ic_file_upload.svg" aria-label="Upload"></md-icon>
+    </md-button>
+    <md-button aria-label="Create New Folder" class="md-fab md-raised md-mini"><md-tooltip class="fab-tooltip" md-direction="left" md-visible="main.isOpen"
+                    md-autohide="false">
+        Create New Folder
+      </md-tooltip>
+      <md-icon class="dark-color" md-svg-src="assets/icons/ic_create_new_folder.svg" aria-label="Create new folder"></md-icon>
+    </md-button>
+    <md-button aria-label="Delete Selection" class="md-fab md-raised md-mini"><md-tooltip class="fab-tooltip" md-direction="left" md-visible="main.isOpen"
+                    md-autohide="false">
+        Delete Selection
+      </md-tooltip>
+      <md-icon class="dark-color" md-svg-src="assets/icons/ic_delete.svg" aria-label="Delete selection"></md-icon>
+    </md-button>
+  </md-fab-actions>
+</md-fab-speed-dial>
 <!-- <div layout="column" layout-fill>
 
   <section layout="row" flex>

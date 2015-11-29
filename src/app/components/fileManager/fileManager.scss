@@ -1,8 +1,6 @@
-$toolbar-height: 64px;
+// $toolbar-height: 56px;
 file-manager, [file-manager] {
-  bottom: 0;
-  position: absolute;
-  top: 0;
+  height: inherit;
   * {
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -10,8 +8,8 @@ file-manager, [file-manager] {
     user-select: none;
   }
 
-  & > ng-transclude > md-content {
-    margin-top: $toolbar-height;
+  & > ng-transclude {
+    height: inherit;
   }
 }
 

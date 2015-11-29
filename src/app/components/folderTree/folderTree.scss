@@ -12,9 +12,11 @@ button.md-button.folder-state {
   position: absolute;
   min-height: 0;
   margin: 0;
+  padding: 0;
   height: $ft-icon-size;
   width: $ft-icon-size;
-  left: -6px;
+  @include transform(translateX(-10px));
+
   md-icon, .md-ripple-container {
     min-height: 0;
     line-height: $ft-icon-size;

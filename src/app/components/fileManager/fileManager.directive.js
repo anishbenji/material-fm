@@ -10,7 +10,7 @@
     var directive = {
       restrict: 'EA',
       scope: {},
-      template: '<ng-transclude layout="row" flex layout-fill></ng-transclude>',
+      template: '<ng-transclude class="filemanager" layout="row" flex="auto" layout-fill></ng-transclude>',
       // compile: fileManagerCompiler,
       bindToController: {
         folders: '='

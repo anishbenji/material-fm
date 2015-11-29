@@ -1,4 +1,4 @@
-<nav class="nav" layout="row" layout-align="start center" layout-wrap class="md-whiteframe-z2">
+<nav class="nav" layout="row" layout-align="start center" layout-wrap>
   <md-button ng-click="bc.setPath(-1)" aria-label="Navigate to Home" ng-disabled="!bc.path">Home</md-button>
   <div ng-if="bc.path" ng-repeat="(key, value) in bc.path track by value.name">
     <md-icon md-svg-icon="assets/icons/ic_keyboard_arrow_right.svg"></md-icon>
