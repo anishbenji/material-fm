@@ -18,7 +18,7 @@
     });
 
     vm.log = '';
-    vm.dtVisible = true;
+    vm.dtVisible = false;
     vm.isOpen = false;
 
     vm.upload = function (files) {

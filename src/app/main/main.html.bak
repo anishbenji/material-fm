@@ -25,8 +25,7 @@
     </md-content>
   </section>
 </div>
-<md-fab-speed-dial md-open="main.isOpen" md-direction="up"
-                         class="md-scale tools">
+<md-fab-speed-dial md-open="main.isOpen" md-direction="up" class="md-scale tools">
   <md-fab-trigger>
     <md-button aria-label="menu" class="md-fab md-warn">
       <md-icon md-svg-src="assets/icons/ic_build.svg"></md-icon>

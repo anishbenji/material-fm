@@ -2,6 +2,6 @@
   'use strict';
 
   angular
-    .module('materialFm', ['ngAnimate', 'ngTouch', 'ngAria', 'ui.router', 'ngMaterial', 'ngFileUpload']);
+    .module('materialFm', ['ngAnimate', 'ngTouch', 'ngAria', 'ngMaterial', 'ngFileUpload']);
 
 })();

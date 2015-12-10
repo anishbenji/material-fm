@@ -57,12 +57,10 @@ html {
     border: 5px dashed blue;
 }
 
-[ui-view] {
+.app {
+  // width: 100vw;
   min-height: 100vh;
   position: relative;
-}
-.app {
-  min-height: inherit;
 }
 
 .upload-icon {
@@ -76,7 +74,7 @@ html {
 }
 
 .line-item {
-  width: calc(100vw - 184px);
+  width: calc(100vw - 194px);
 }
 
 .breadcrumbs {
@@ -89,6 +87,7 @@ html {
 }
 
 .main {
+  width: inherit;
   overflow-y: scroll;
 
   &:not(.dt-visible) {
@@ -99,9 +98,9 @@ html {
     height: calc(100vh - #{$toolbar-height + $droptarget-height});
   }
 
-  & > * {
-    display: block;
-  }
+  // & > * {
+  //   display: block;
+  // }
 }
 
 .fileview {
@@ -120,11 +119,9 @@ html {
 md-tooltip.md-show.fab-tooltip {
   @include transform(translate3d(-20px, 0, 0));
 }
-// drop-target {
-//   position: fixed;
-//   top: 0px;
-//   left: 0px;
-// }
+drop-target {
+  margin-right: 6em;
+}
 
 /**
  *  Do not remove the comment below. It's the markers used by gulp-inject to inject
