@@ -116,7 +116,7 @@ html {
   color: rgba(0,0,0,0.54);
 }
 
-md-tooltip.md-show.fab-tooltip {
+md-tooltip.fab-tooltip {
   @include transform(translate3d(-20px, 0, 0));
 }
 drop-target {

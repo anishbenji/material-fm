@@ -15,7 +15,7 @@
       scope: {},
       // compile: folderTreeCompiler,
       bindToController: {
-        path: '='
+        path: '=?'
       },
       controller: breadcrumbsController,
       controllerAs: 'bc'
@@ -37,7 +37,7 @@
         return list.currentPath;
       }, function(newValue) {
         vm.path = newValue;
-        $log.debug($scope.path);
+        $log.debug(vm.path);
       }, false);
 
       function setPath(index) {
